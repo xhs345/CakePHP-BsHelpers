@@ -315,6 +315,7 @@ class BsFormHelper extends FormHelper {
  *
  * - 'class'
  * - 'label' - string and array
+ * - `required` - Adds the class "required" to the form-group
  *
  * @param string $fieldName This should be "Modelname.fieldname"
  * @param array $options Each type of input takes different options.
@@ -451,6 +452,19 @@ class BsFormHelper extends FormHelper {
 			'basic' => $basicOptions,
 			'options' => $options,
 		);
+	}
+
+/**
+ * Adds the class "required" to the form-group
+ *
+ * @param array $basicOptions Options by default for the input
+ * @param string $value        Required
+ * @return array
+ */
+	private function __addInputrequired($basicOptions, $value) {
+		$basicOptions['before'] .= ' required';
+
+		return $basicOptions;
 	}
 
 /**
